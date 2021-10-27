@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: demo
+  name: demo
+  namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        name: demo
+  template:
+    metadata:
+      labels:
+        name: demo
+    spec:
+      containers:
+      - image: projects.registry.vmware.com/vmc_tanzu_demo/pacman-nodejs-app:1.0
+        name: demo
+        ports:
+        - containerPort: 8080
+          name: http-server

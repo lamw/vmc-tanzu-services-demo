@@ -1,0 +1,17 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: william-tkc-01
+  namespace: dev
+spec:
+  distribution:
+    version: v1.21.2
+  topology:
+    controlPlane:
+      class: best-effort-medium
+      count: 3
+      storageClass: vmc-workload-storage-policy-cluster-1
+    workers:
+      class: best-effort-medium
+      count: 3
+      storageClass: vmc-workload-storage-policy-cluster-1

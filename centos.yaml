@@ -1,0 +1,25 @@
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: centos-basic
+  labels:
+    app: centos-basic
+spec:
+  imageName: centos-stream-8-vmservice-v1alpha1-1633387532874
+  className: best-effort-large
+  powerState: poweredOn
+  storageClass: vmc-workload-storage-policy-cluster-1
+  networkInterfaces:
+  - networkType: nsx-t
+  vmMetadata:
+    configMapName: centos-basic
+    transport: OvfEnv
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: centos-basic
+data:
+  hostname: centos-basic
+  password: VMware1!
+  public-keys: SSH_KEY
