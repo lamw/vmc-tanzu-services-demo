@@ -15,3 +15,7 @@ spec:
       class: best-effort-medium
       count: 3
       storageClass: vmc-workload-storage-policy-cluster-1
+  settings:
+    storage:
+      classes: ["vmc-workload-storage-policy-cluster-1"]
+      defaultClass: vmc-workload-storage-policy-cluster-1
